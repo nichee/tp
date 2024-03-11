@@ -28,7 +28,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 
-
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.Messages;
