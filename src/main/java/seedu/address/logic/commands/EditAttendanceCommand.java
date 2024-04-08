@@ -34,8 +34,8 @@ public class EditAttendanceCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the attendance record of the person identified "
             + "by the index number used in the displayed person list. \n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_ATTENDANCE_RECORD + "Attendance] "
-            + "[" + PREFIX_ATTENDANCE_STATUS + "Status]\n"
+            + PREFIX_ATTENDANCE_RECORD + "Attendance "
+            + PREFIX_ATTENDANCE_STATUS + "Status\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_ATTENDANCE_RECORD + "20-03-2024 "
             + PREFIX_ATTENDANCE_STATUS + "0";

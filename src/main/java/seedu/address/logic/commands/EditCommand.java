@@ -45,8 +45,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_STUDENTID + "STUDENTID] "
-            + "[" + PREFIX_ATTENDANCE_RECORD + "Attendance]"
-            + "[" + PREFIX_DESCRIPTION + "DESCRIPTION]...\n "
+            + "[" + PREFIX_DESCRIPTION + "DESCRIPTION]\n "
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
@@ -177,13 +176,14 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setStudentId(toCopy.studentId);
             setAttendances(toCopy.attendances);
+            setDescription(toCopy.description);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, studentId, attendances);
+            return CollectionUtil.isAnyNonNull(name, phone, email, studentId, attendances, description);
         }
 
         public void setName(Name name) {

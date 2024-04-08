@@ -16,6 +16,7 @@ import java.util.stream.Stream;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditAttendanceCommand;
 import seedu.address.logic.commands.EditAttendanceCommand.EditPersonDescriptor;
+import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.AttendanceStatus;
 import seedu.address.model.tag.Attendance;
@@ -37,9 +38,13 @@ public class EditAttendanceCommandParser implements Parser<EditAttendanceCommand
         try {
             String allIndex = argMultimap.getPreamble();
             for (String i : allIndex.split(",")) {
-                if (!i.trim().isEmpty()) {
-                    index.add(ParserUtil.parseIndex(i));
+
+                if (i.trim().isEmpty()) {
+                    throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                            EditAttendanceCommand.MESSAGE_USAGE));
                 }
+                index.add(ParserUtil.parseIndex(i));
+
             }
         } catch (ParseException pe) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,

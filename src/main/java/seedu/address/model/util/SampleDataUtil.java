@@ -11,7 +11,6 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyClassBook;
 import seedu.address.model.person.AttendanceStatus;
 import seedu.address.model.person.Classes;
-import seedu.address.model.person.CourseCode;
 import seedu.address.model.person.Description;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Attendance;
@@ -50,8 +49,8 @@ public class SampleDataUtil {
 
     public static Classes[] getSampleClasses() throws DataLoadingException, IOException {
         return new Classes[] {
-            new Classes(new CourseCode("CS2103T")),
-            new Classes(new CourseCode("CS2101"))
+        //new Classes(new CourseCode("CS2103T")),
+        //new Classes(new CourseCode("CS2101"))
         };
     }
     public static ReadOnlyClassBook getSampleClassBook() {
