@@ -9,7 +9,7 @@
 Hello, fellow TAs! You're about to embark on a journey that will revolutionise the way you manage your class. MustVas isn't just a tool; it's your new teaching partner designed to streamline your workflow so you can focus on what truly matters — educating and inspiring your students.
 
 ## What is MustVas? 
-MustVas is a desktop app designed to help fellow Teaching Assistants (TAs) manage tutorial contacts. Its key features include **creating and selecting classes, adding students' contacts, and tracking their attendance**. It is optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, MustVas can get your contact management tasks done faster than traditional GUI apps.
+MustVas is a desktop app designed to help fellow Teaching Assistants (TAs) manage tutorial contacts. Its key features include **creating and selecting classes, adding students' contacts, and tracking their attendance**. MustVas is optimized for use via a Command Line Interface (CLI), offering the benefits of a Graphical User Interface (GUI) with the efficiency of a CLI. If you can type fast, MustVas can get your contact management tasks done faster than traditional GUI apps.
 
 ## What can you do with MustVas?
 - **Class Management**: Organise and oversee your students across various classes.
@@ -395,7 +395,7 @@ Examples:
     ![result for 'find john doe'](images/FindExample3.png)
 
 
-**Warning**
+**Note**
 > If multiple search terms are used, all search terms will be matched with full words as well as incomplete words!
 
 ### Clearing all entries: `clear`
