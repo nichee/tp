@@ -406,13 +406,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. The list is empty.
-  * 2a1. MustVas shows a message that the list is empty. (Not implemented due to feature freeze)
+* 1a. The list is empty.
+  * 1a1. MustVas shows a message that the list is empty. (Not implemented due to feature freeze)
 
   Use case ends.
 
-* 3a. The user enters an invalid class index.
-    * 3a1. MustVas shows an error message about selecting an invalid class.
+* 2a. The user enters an invalid class index.
+    * 2a1. MustVas shows an error message about selecting an invalid class.
 
   Use case ends.
 
