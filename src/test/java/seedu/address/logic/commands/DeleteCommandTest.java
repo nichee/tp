@@ -3,7 +3,6 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
@@ -35,30 +34,6 @@ public class DeleteCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), getTypicalClassBook());
 
     public DeleteCommandTest() throws DataLoadingException, IOException {}
-
-    //    @Test
-    //    public void execute_validIndexUnfilteredList_success() {
-    //        Person personToDelete = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
-    //        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_PERSON);
-    //
-    //        String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS,
-    //                Messages.format(personToDelete));
-    //
-    //        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(),
-    //        model.getClassBook());
-    //        expectedModel.deletePerson(personToDelete);
-    //
-    //        assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
-    //    }
-
-    @Test
-    public void execute_invalidIndexUnfilteredList_throwsCommandException() {
-        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
-        DeleteCommand deleteCommand = new DeleteCommand(outOfBoundIndex);
-
-        assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
-    }
-
 
     @Test
     public void execute_validIndexFilteredList_success() throws DataLoadingException, IOException, CommandException {

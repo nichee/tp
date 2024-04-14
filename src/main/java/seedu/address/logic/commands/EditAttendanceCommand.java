@@ -101,7 +101,8 @@ public class EditAttendanceCommand extends Command {
     }
 
     private static Person createEditedPerson(Person personToEdit,
-                                             EditPersonDescriptor editPersonDescriptor, Model model) throws CommandException {
+                                             EditPersonDescriptor editPersonDescriptor,
+                                             Model model) throws CommandException {
         assert personToEdit != null;
 
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
@@ -113,7 +114,9 @@ public class EditAttendanceCommand extends Command {
         for (Attendance a : personToEdit.getAttendances()) {
             if (a.attendanceName.getDate().equals(editPersonDescriptor.getAttendances().attendanceName.getDate())) {
                 found = true;
-                newAttendances.add(new Attendance(new AttendanceStatus(editPersonDescriptor.getAttendances().attendanceName.getDate(), editPersonDescriptor.getAttendances().attendanceName.getStatus())));
+                newAttendances.add(new Attendance(new AttendanceStatus(editPersonDescriptor
+                        .getAttendances()
+                        .attendanceName.getDate(), editPersonDescriptor.getAttendances().attendanceName.getStatus())));
             } else {
                 newAttendances.add(a);
             }

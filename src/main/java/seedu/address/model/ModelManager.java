@@ -310,7 +310,7 @@ public class ModelManager implements Model {
         notifyUiUpdateListeners();
     }
 
-//=============================== Observer functions ==================================================================
+    //=============================== Observer functions =============================================================
     public void addUiUpdateListener(UiUpdateListener listener) {
         uiUpdateListeners.add(listener);
     }

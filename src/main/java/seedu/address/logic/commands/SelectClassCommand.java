@@ -30,6 +30,10 @@ public class SelectClassCommand extends Command {
 
     private final Index targetIndex;
 
+    /**
+     *  Create a SelectClassCommand Object
+     * @param index
+     */
     public SelectClassCommand(Index index) {
         requireNonNull(index);
         this.targetIndex = index;

@@ -4,7 +4,7 @@
   pageNav: 3
 ---
 
-# AB-3 Developer Guide
+# MustVas Developer Guide
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -107,12 +107,15 @@ How the `Logic` component works:
    Note that although this is shown as a single step in the diagram above (for simplicity), in the code it can take several interactions (between the command object and the `Model`) to achieve.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
+1. For commands that have no arguments, instead of creates a parser that matches the command (e.g., `ListCommandParser`), the `Command` object(e.g. ListCommand) is simply returned by the `AddressBookParser` .
+
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
 <puml src="diagrams/ParserClasses.puml" width="600"/>
 
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
+
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
@@ -159,6 +162,47 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 ## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
+
+### Create Class feature 
+
+The `create` command is used to create a class. Below is the sequence diagram when the `create` command is used.
+
+<puml src="diagrams/CreateClassSequenceDiagram.puml" />
+
+### Select Class feature
+
+The `select` command is used to select a class. Below is the sequence diagram when the `select` command is used.
+
+<puml src="diagrams/SelectClassCommandSequenceDiagram.puml" />
+
+### Add feature
+The `add` command is used to add a new student. Below is the sequence diagram when the `add` command is used.
+
+<puml src="diagrams/AddCommandSequenceDiagram.puml" />
+
+### Edit feature
+The `edit` command is used to edit a student's information (name, phone, email, student id, description). Below is the sequence diagram when the `edit` command is used.
+
+<puml src="diagrams/EditCommandSequenceDiagram.puml" />
+
+### Add attendance record feature 
+
+The `adda` command is used to add an attendance record to all students. Below is the sequence when the `adda` command is used.
+
+<puml src="diagrams/AddAttendanceRecordSequenceDiagram.puml" />
+
+### Edit attendance record feature
+
+The `edita` command is used to edit an attendance record of some students. Below is the sequence when the `edita` command is used.
+
+<puml src="diagrams/EditAttendanceCommandSequenceDiagram.puml" />
+
+### Delete attendance record feature 
+
+The `dela` command is used to delete an attendance record of all students. Below is the sequence when the `dela` command is used.
+
+<puml src="diagrams/DeleteAttendanceRecordSequenceDiagram.puml" />
+
 
 ### \[Proposed\] Undo/redo feature
 
@@ -363,11 +407,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
 * 2a. The list is empty.
-  * 2a1. MustVas shows a message that the list is empty.
+  * 2a1. MustVas shows a message that the list is empty. (Not implemented due to feature freeze)
 
   Use case ends.
 
-* 3a. The user enters an invalid class.
+* 3a. The user enters an invalid class index.
     * 3a1. MustVas shows an error message about selecting an invalid class.
 
   Use case ends.
@@ -385,10 +429,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. Enter an invalid command.
-  * 1a1. MustVas shows an error message.
+* 1a. Enter an invalid class name (Contains non-alphanumeric characters, Contains spaces, or blank).
+  * 1a1. MustVas shows an error message stating the correct format
 * 1b. Enter a duplicate class.
-  * 1b1. MustVas shows an error message.
+  * 1b1. MustVas shows an error message stating the class alrea
 
   Use case ends.
 
@@ -403,8 +447,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. Enter an invalid command.
-  * 1a1. MustVas shows an error message.
+* 1a. Enter an invalid command. 
+  * 1a1.MustVas shows the list of stored classes.
 
   Use case ends.
 
@@ -420,11 +464,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a. Enter an invalid command.
-  * 1a1. MustVas shows an error message.
-
-* 1b. Enter an invalid class to select.
-  * 1a1. MustVas shows an error message that stated class does not exist.
+* 1a. Enter an invalid class index.
+  * 1a1. MustVas shows an error message stating the provided class index is invalid
 
   Use case ends.
   

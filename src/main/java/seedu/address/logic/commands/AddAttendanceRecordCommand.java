@@ -95,6 +95,12 @@ public class AddAttendanceRecordCommand extends Command {
         return new CommandResult(String.format(MESSAGE_SUCCESS, date));
     }
 
+    /**
+     * Provided an updated person.
+     * @param personToEdit the person that needed to be updated.
+     * @param editPersonDescriptor the information to be updated.
+     * @return an updated person.
+     */
     private static Person createEditedPerson(Person personToEdit,
                                              EditCommand.EditPersonDescriptor editPersonDescriptor) {
         assert personToEdit != null;
