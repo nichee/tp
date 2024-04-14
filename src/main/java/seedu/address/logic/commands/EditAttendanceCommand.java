@@ -77,14 +77,17 @@ public class EditAttendanceCommand extends Command {
             }
         }
 
-        ArrayList<Index> listOfExeceutedIndex = new ArrayList<>();
+        ArrayList<Person> listOfPerson = new ArrayList<>();
+        for (Index i : indexs) {
+            if (!listOfPerson.contains(lastShownList.get(i.getZeroBased()))) {
+                listOfPerson.add(lastShownList.get(i.getZeroBased()));
+            }
+        }
 
         StringBuilder names = new StringBuilder();
-        for (Index i : indexs) {
-            if (listOfExeceutedIndex.contains(i)) {
-                continue;
-            }
-            Person personToEdit = lastShownList.get(i.getZeroBased());
+        for (Person i : listOfPerson) {
+
+            Person personToEdit = i;
             Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor, model);
 
             if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
@@ -95,7 +98,6 @@ public class EditAttendanceCommand extends Command {
             model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
             names.append(editedPerson.getName());
             names.append(", ");
-            listOfExeceutedIndex.add(i);
         }
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, names.substring(0, names.length() - 2)));
     }

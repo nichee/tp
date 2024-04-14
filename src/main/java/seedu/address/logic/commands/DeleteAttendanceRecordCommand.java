@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ATTENDANCE_RECORD;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -57,6 +58,8 @@ public class DeleteAttendanceRecordCommand extends Command {
         if (model.getSelectedClassName() == "No class selected!") {
             return new CommandResult(MESSAGE_FAILURE);
         }
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+
         List<Person> lastShownList = model.getFilteredPersonList();
         if (lastShownList.size() == 0) {
             throw new CommandException(Messages.MESSAGE_NO_PERSON_IN_THE_CLASS);

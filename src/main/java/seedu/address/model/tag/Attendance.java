@@ -20,6 +20,7 @@ public class Attendance {
     public static final String MESSAGE_CONSTRAINTS_STATUS = "Status must be from 0 to 2 where 0 means 'Absent'"
             + ", 1 means 'Present' and 2 means 'Absent with valid reason'";
 
+    public static final String VALIDATION_REGEX_DATE = "\\d{2}-\\d{2}-\\d{4}";
     public static final String VALIDATION_REGEX_STATUS = "[012]";
 
 
@@ -41,6 +42,10 @@ public class Attendance {
      */
     public static boolean isValidDate(String test) {
         if (test.trim().equals("")) {
+            return false;
+        }
+
+        if (!test.matches(VALIDATION_REGEX_DATE)) {
             return false;
         }
 

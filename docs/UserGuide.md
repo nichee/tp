@@ -22,7 +22,7 @@ Having been built for TAs by TAs, MustVas is specifically designed for Teaching 
 In this User Guide, you will be learning key tips and tricks to make your experience with MustVas useful and handy. This User Guide will cover the main features of the app and provide you with clear instructions on how to effectively utilize our product with relevant examples to get you started! By following these instructions, you can maximize your understanding and proficiency of using our product to its fullest potential. Whether you're a novice or an experienced user, this guide offers step-by-step instructions, clarifications, and best practices to enhance your overall experience. We hope that MustVas's user guide will provide a new and better way for you to manage your students in the long run.
 
 ## How can you use this guide?
-Simply navigate to our features section for a thorough read through, or click on a specific section to review in our Table of Contents for any queries you might have. Do keep a lookout for the frequently asked questions down below which may help you address some basic common questions! Lastly, our command summary will be useful as a reference for the key command prompts to use in MustVas. 
+You may first want to read through our [glossary](#glossary) to have a better understanding of terms that you might be unfamiliar with. For more information on MustVas' features, simply navigate to our features section for a thorough read through, or click on a specific section to review in our Table of Contents. Do keep a lookout for the frequently asked questions down below which may help you address some basic common questions! Lastly, our command summary will be useful as a reference for the key command prompts to use in MustVas. 
 
 NOTE: Users who are not familiar with using a CLI need not fret. Our commands have been specifically catered to a beginner's use - they are simple and easy to learn! Assistance is also provided automatically whenever there is an invalid command. 
 
@@ -30,28 +30,29 @@ NOTE: Users who are not familiar with using a CLI need not fret. Our commands ha
 ## Table Of Contents
 1. [Quick Start](#quick-start)
 2. [Features](#features)
-    - [Help](#viewing-help--help)
-    - [Create class](#creating-a-class--create)
-    - [Remove class](#removing-a-class--rm)
-    - [View classes](#viewing-the-classes--view)
-    - [Select class](#selecting-a-class-to-view--select)
-      - [Add student](#adding-a-student--add)
-      - [Delete student](#deleting-a-student--delete)
-      - [Edit student](#editing-a-student--edit)
-      - [Add attendance](#adding-an-attendance-record--adda)
-      - [Delete attendance](#deleting-an-attendance-record--dela)
-      - [Edit attendance](#editing-an-attendance-for-any-number-of-students--edita)
-      - [Add/Edit description](#addingediting-a-description--description)
-      - [List](#listing-a-class-to-view--list)
-      - [Find](#locating-students-by-name--find)
-      - [Clear](#clearing-all-entries--clear)
-    - [Exit](#exiting-the-program--exit)
+    - [Help](#viewing-help-help)
+    - [Create class](#creating-a-class-create)
+    - [Remove class](#removing-a-class-rm)
+    - [View classes](#viewing-the-classes-view)
+    - [Select class](#selecting-a-class-to-view-select)
+      - [Add student](#adding-a-student-add)
+      - [Delete student](#deleting-a-student-delete)
+      - [Edit student](#editing-a-student-edit)
+      - [Add attendance](#adding-an-attendance-record-adda)
+      - [Delete attendance](#deleting-an-attendance-record-dela)
+      - [Edit attendance](#editing-an-attendance-for-any-number-of-students-edita)
+      - [Add/Edit description](#addingediting-a-description-description)
+      - [List](#listing-a-class-to-view-list)
+      - [Find](#locating-students-by-name-find)
+      - [Clear](#clearing-all-entries-clear)
+    - [Exit](#exiting-the-program-exit)
 3. [Saving the data](#saving-the-data)
 4. [Editing the data file](#editing-the-data-file)
 5. [Coming Soon...](#coming-soon)
 6. [Frequently Asked Questions](#faq)
 7. [Known Issues](#known-issues)
 8. [Command Summary](#command-summary)
+9. [Glossary](#glossary)
 
 <page-nav-print />
 
@@ -123,14 +124,14 @@ _See our Command Prompt guide below._ <br>
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 
-## Attribute Summary (Prefixes): 
+### Attribute Summary (Prefixes): 
 The meaning of each prefix is listed below:
 Attribute     | Prefix (Flag) | Remarks 
 -----------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------
 **Class Name**    | `c/` | Class name should only contain alphanumeric characters `[a-z, A-Z, 0-9]`. <br>No duplication is allowed. <br>Example: `c/cs2103`
 **Student Name**  | `n/` | Student name should only contain alphanumeric characters `[a-z, A-Z, 0-9]` and spaces. <br>Example: `n/John Teo`
 **Student Email** | `e/` | No duplication is allowed. <br> Example: `e/jane@gmail.com`
-**Student Id**   | `s/` | Student Id must begin with A, followed by 7 digits, and end with a capital letter. <br>No duplication is allowed. <br>Example: `s/A1234567D`
+**Student Id**   | `s/` | Student Id must begin with A, followed by 7 digits, and end with a letter. The last letter will automatically become capitalised. <br>No duplication is allowed. <br>Example: `s/A1234567D`
 **Student Phone**   | `p/` | Phone must contain only 8 digits from `80000000` to `99999999`. <br>No duplication is allowed. <br>Example: `p/88889999`
 **Attendance Date**   | `ar/` | Date must be in the format of `dd-MM-yyyy`. <br>No duplication is allowed. <br>Example: `ar/01-01-2024`
 **Attendance Status**   | `st/` | The status must be either `0`, `1` or `2`. <br>Example: `st/0`
@@ -138,7 +139,7 @@ Attribute     | Prefix (Flag) | Remarks
 </box>
 
 
-### Viewing help : `help`
+### Viewing help: `help`
 
 Shows a message with a link to our help page.
 
@@ -146,7 +147,7 @@ Shows a message with a link to our help page.
 
 Format: `help`
 
-### Creating a class : `create`
+### Creating a class: `create`
 
 Creates a new class.
 
@@ -161,7 +162,7 @@ Examples:
 * `create c/CS2101`: Creates a class with course code 'CS2101'.
 * `create c/CS2103T`: Creates a class with course code 'CS2103T'.
 
-### Removing a class : `rm`
+### Removing a class: `rm`
 
 Removes the specified class from the ClassBook, and deletes all students in the class.
 
@@ -183,15 +184,15 @@ The index refers to the index number shown in the displayed class list. (e.g. CS
 * `.\No class selected!` will be displayed on the bottom left.
 
 
-### Viewing the classes : `view`
+### Viewing the classes: `view`
 
 Shows list of classes in result display.
 
 ![ViewCommand](images/ViewCommand2.png)
-* The index number shown in the displayed class list is used for [Remove](#removing-a-class--rm) and [Select](#selecting-a-class-to-view--select) (e.g. Use index 1 for CS2103)
+* The index number shown in the displayed class list is used for [Remove](#removing-a-class-rm) and [Select](#selecting-a-class-to-view-select) (e.g. Use index 1 for CS2103)
 
 
-### Selecting a class to view : `select`
+### Selecting a class to view: `select`
 
 Shows the list of all students in the selected class.
 Allows you to modify and view the class.
@@ -209,7 +210,7 @@ Format: `select INDEX`
 * The file will always named in the format `CLASS_NAME.json`
 
 
-# Working with your class
+## Working with your class
 <div class="reminder" markdown="1" style="background-color: #f7f7f7; border-left: 6px solid #5bc0de; padding: 10px; margin-bottom: 20px;">
 
 ### 💡 <span style="color: #5bc0de;">Reminder</span>
@@ -223,7 +224,7 @@ If you see something like this (with the right class of course!) in the bottom l
 </div>
 
 
-### Adding a student : `add`
+### Adding a student: `add`
 
 Adds a student to the StudentBook.
 
@@ -231,7 +232,7 @@ Adds a student to the StudentBook.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL s/STUDENT_ID [desc/DESCRIPTION]`
 
-* `STUDENT_ID` must begin with A, followed by 7 digits, and end with a capital letter. 
+* `STUDENT_ID` must begin with A, followed by 7 digits, and end with a capital letter. The last letter will automatically become capitalised.
 * `PHONE_NUMBER` must range from `80000000` to `99999999`. 
 * There should not be any duplicate `PHONE_NUMBER`, `EMAIL` or `STUDENT_ID`.
 * `NAME` only accepts alphanumerical characters and whitespace (i.e. non-alphanumeric characters such as '/', '-', '$' are not accepted)
@@ -239,13 +240,13 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL s/STUDENT_ID [desc/DESCRIPTION]`
 * The description field is optional. You may write any description for the new student. However, **only one description is allowed**. The old description will be replaced with the new description when editing or adding a new description when one already exists.
 * If there are existing attendance records allocated to the existing students, the newly added student will have a default status of '2' (meaning Valid Reason) for these existing attendance records. Please refer to the image below for illustration.
 ![add_new_student_with_attendance](images/add_new_student_with_attendance.PNG)
-  - You may see our [attendance features](#adding-an-attendance-record--adda) below for more information.
+  - You may see our [attendance features](#adding-an-attendance-record-adda) below for more information.
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@gmail.com s/A0251980B`: Adds a new student.
 * `add n/John Doe p/98765432 e/johnd@gmail.com s/A0251980B desc/Enjoy coding`: Adds a new student with a description.
 
-### Deleting a student : `delete`
+### Deleting a student: `delete`
 
 Deletes the specified student from the StudentBook.
 
@@ -259,7 +260,7 @@ Examples:
 * `list` followed by `delete 2`: Deletes the 2nd person in the StudentBook.
 * `find Betsy` followed by `delete 1`: Deletes the 1st student in the results of the `find` command.
 
-### Editing a student : `edit`
+### Editing a student: `edit`
 
 Edits an existing student in the StudentBook.
 
@@ -274,7 +275,7 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com`: Edits the phone number and email studentId of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower`: Edits the name of the 2nd person to be `Betsy Crower`.
 
-### Adding an attendance record : `adda`
+### Adding an attendance record: `adda`
 
 Add an attendance record to all existing students in the studentId book.
 
@@ -294,13 +295,13 @@ Format: `adda ar/DATE`
     - 0 for 'Absent', represented by a red cross ❌ 
     - 1 for 'Present', represented by a green tick ✅ 
     - 2 for 'Valid Reason', represented by a blue dot 🔵 
-* To edit the status value, do refer to the [edita](#editing-an-attendance-for-any-number-of-students--edita) command below.
+* To edit the status value, do refer to the [edita](#editing-an-attendance-for-any-number-of-students-edita) command below.
   </div>
 Examples:
 *  `adda ar/01-01-2024`: All the existing students will have a newly added attendance with date `01-01-2024` and a default status `1`.
 
 
-### Editing an attendance for any number of students : `edita`
+### Editing an attendance for any number of students: `edita`
 
 Edits the existing attendance record in the student's list of attendance in the studentId book. **Any number of students** can be edited in one go.
 
@@ -315,7 +316,7 @@ Format: `edita INDEX1, INDEX2, …​ ar/DATE st/STATUS`
   * The entered date, `DATE`, must exist in the student's existing list of attendance dates.
 <div class="reminder" markdown="1" style="background-color: #f7f7f7; border-left: 6px solid #5bc0de; padding: 10px; margin-bottom: 20px;">
   
-### 💡 <span style="color: #5bc0de;">Reminder</span>
+### 💡 <span style="color: #5bc0de;">Recall Status information </span>
   * Recall the representation and valid inputs for `STATUS`:
     - 0 for 'Absent', represented by a red cross ❌ 
     - 1 for 'Present', represented by a green tick ✅ 
@@ -326,7 +327,7 @@ Examples:
 *  `edita 1 ar/01-01-2024 st/2`: Edits the attendance status of the 1st student for `01-01-2024` to `2`, indicating absence with a valid reason.
 *  `edita 2, 3 ar/01-01-2024 st/0`: Edits the attendance status of the 2nd and 3rd student for `01-01-2024` to `0`, indicating absence.
 
-### Deleting an attendance record : `dela`
+### Deleting an attendance record: `dela`
 
 Deletes the specified attendance date from all the student's list of attendance records in studentId book.
 
@@ -350,7 +351,7 @@ Examples:
 
 ![AttendancePercentage](images/AttendancePercentage.png)
 
-### Adding\Editing a description : `description`
+### Adding\Editing a description: `description`
 
 Adds a description to the selected student or Updates an already existing description of the selected student with the given description.
 
@@ -365,13 +366,13 @@ Examples:
 *  `description 1 desc/Loves coding`: Adds a description `Loves coding` to first student.
 *  `description 2 desc/Absent on 29/04/2023 due to Case Competition`: Adds a description `Absent on 29/04/2023 due to Case Competition` to second student on the list.
 
-### Listing a class to view : `list`
+### Listing a class to view: `list`
 
 Lists all students in the class.
 
 Format: `list`
 
-### Locating students by name : `find`
+### Locating students by name: `find`
 
 Finds students whose names contain any of the given keywords.
 
@@ -397,7 +398,7 @@ Examples:
 **Warning**
 > If multiple search terms are used, all search terms will be matched with full words as well as incomplete words!
 
-### Clearing all entries : `clear`
+### Clearing all entries: `clear`
 
 Clears all entries from the StudentBook in a selected class.
 <div markdown="block" class="alert alert-danger">
@@ -406,7 +407,7 @@ Clears all entries from the StudentBook in a selected class.
 
 Format: `clear`
 
-### Exiting the program : `exit`
+### Exiting the program: `exit`
 
 Exits the program.
 
@@ -483,3 +484,17 @@ Action     | Format, Examples
 **Edit Attendance**  | `edita INDEX1, INDEX2, …​ ar/DATE st/STATUS` <br> e.g., `edita 1 ar/01-01-2024 st/2`
 **Delete Attendance** | `dela ar/DATE` <br> e.g., `dela ar/02-02-2024`
 **Add\Edit Description** | `description INDEX desc/DESCRIPTION` <br> e.g., `description 1 desc/Loves coding`
+
+
+## Glossary
+Term     | Abbreviations | Definition 
+-----------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------
+**Command Line Interface**    | CLI | A text-based interface for interacting with a computer system or program by typing commands into a terminal or command prompt.
+**Graphical User Interface**  | GUI |  A visual interface that allows users to interact with a computer system or program through graphical elements such as windows, icons, buttons, and menus.
+**Command Prompt**   | - | A command line interpreter application available in most Windows operating systems that allows users to enter commands to perform tasks.
+**Terminal**   | - | A text-based interface for interacting with a computer system or program by typing commands, commonly found in Unix-like operating systems.
+**Change Directory** | `cd` | A command used in command line interfaces to change the current working directory to a specified location within the file system.
+**List**   | `ls` | A command used in command line interfaces to list the contents of a directory or folder.
+**Directory**   | `dir` | A command used in command line interfaces, particularly in Windows operating systems, to list the contents of a directory or folder.
+**Java ARchive**   | `jar` <br> `JAR` | A file format used to package Java class files, associated metadata, and resources into a single file for distribution or deployment.
+**JavaScript Object Notation** | `json` <br> `JSON` | A file format that is easy for humans to read and write, and easy for machines to parse and generate, commonly used for transmitting data between a server and a web application.

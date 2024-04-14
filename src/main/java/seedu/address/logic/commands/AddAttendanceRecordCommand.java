@@ -55,6 +55,8 @@ public class AddAttendanceRecordCommand extends Command {
         if (model.getSelectedClassName() == "No class selected!") {
             return new CommandResult(MESSAGE_FAILURE);
         }
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+
         List<Person> lastShownList = model.getFilteredPersonList();
         if (lastShownList.size() == 0) {
             throw new CommandException(Messages.MESSAGE_NO_PERSON_IN_THE_CLASS);
